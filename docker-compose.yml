@@ -54,5 +54,5 @@ db:
   environment:
     MYSQL_ROOT_PASSWORD: root
     MYSQL_DATABASE: MySKD
-    MYSQL_USER: ysk_dbu
-    MYSQL_PASSWORD: ysk_pass
+    MYSQL_USER: myskd_dbu
+    MYSQL_PASSWORD: myskd_pass
