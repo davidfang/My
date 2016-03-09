@@ -33,7 +33,7 @@ cli:
 nginx:
   image: nginx:latest
   ports:
-    - "127.0.0.1:8000:80"
+    - "localhost:80:80"
   volumes:
     - ./:/app
     - ./vhost.conf:/etc/nginx/conf.d/vhost.conf
