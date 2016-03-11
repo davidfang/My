@@ -23,18 +23,23 @@ return [
     'components' => [
         'request'=>[
             'enableCsrfValidation'=>false,
+            'parsers' => [
+                'application/json' => 'yii\web\JsonParser',
+            ]
         ],
         'response' => [
             'class' => 'yii\web\Response',
+            'format' => yii\web\Response::FORMAT_JSON,
+            'charset' => 'UTF-8',
             'on beforeSend' => function ($event) {
                 $response = $event->sender;
-                    if ($response->data !== null) {
-                        $response->data = [
-                            'success' => $response->isSuccessful,
-                            'data' => $response->data,
-                        ];
-                        $response->statusCode = 200;
-                    }
+                if ($response->data !== null) {
+                    $response->data = [
+                        'success' => $response->isSuccessful,
+                        'data' => $response->data,
+                    ];
+                    $response->statusCode = 200;
+                }
             },
         ],
         'user' => [
