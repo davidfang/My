@@ -13,37 +13,28 @@ fpm:
     - 9000
   links:
     - db
-    - mailcatcher
   environment:
-    XDEBUG_CONFIG: "idekey=PHPSTORM remote_enable=On remote_connect_back=On"
+    XDEBUG_CONFIG: "idekey=PHPSTORM remote_enable=On remote_host=172.17.42.1"
 
 cli:
   build: docker/php
   volumes_from:
     - data
   working_dir: /app
-  tty: true
-  stdin_open: true
-  command: '/bin/bash'
+  entrypoint: /app/yii
   tty: true
   links:
     - db
-    - mailcatcher
 
 nginx:
   image: nginx:latest
   ports:
-    - "localhost:80:80"
+    - "192.168.56.6:80:80"
   volumes:
     - ./:/app
     - ./vhost.conf:/etc/nginx/conf.d/vhost.conf
   links:
     - fpm
-
-mailcatcher:
-    image: schickling/mailcatcher:latest
-    ports:
-      - "127.0.0.1:1080:1080"
 
 db:
   image: mysql:5.6
@@ -53,6 +44,6 @@ db:
     - "127.0.0.1:33060:3306"
   environment:
     MYSQL_ROOT_PASSWORD: root
-    MYSQL_DATABASE: MySKD
+    MYSQL_DATABASE: MySKD 
     MYSQL_USER: myskd_dbu
     MYSQL_PASSWORD: myskd_pass
