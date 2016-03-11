@@ -4,6 +4,10 @@
 
 * Read about [docker](https://www.docker.com)
 * Install it
+* Read about [composer](http://community.dev.croy.cn)
+* Install it
+* 更新全局composer`composer global require "fxp/composer-asset-plugin"`
+* 更新composer `composer update `
 
 ## Installation
 
