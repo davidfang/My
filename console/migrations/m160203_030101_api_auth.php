@@ -21,7 +21,7 @@ class m160203_030101_api_auth extends \yii\db\Migration
         
         $this->createTable('{{%api_auth_item}}', [
             'name' => 'varchar(64) NOT NULL   ',
-            'type' => 'int(11) NOT NULL DEFAULT NULL  ',
+            'type' => 'int(11) NOT NULL  ',
             'description' => 'text  DEFAULT NULL  ',
             'rule_name' => 'varchar(64)  DEFAULT NULL  ',
             'data' => 'text  DEFAULT NULL  ',
