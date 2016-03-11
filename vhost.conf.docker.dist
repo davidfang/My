@@ -5,7 +5,7 @@ server {
 	root /app/frontend/web;
 	index index.php index.html;
 
-	server_name MySKD.dev;
+	server_name myskd.dev;
 
 	charset utf-8;
 
@@ -47,7 +47,7 @@ server {
 	root /app/backend/web;
 	index index.php index.html;
 
-	server_name backend.MySKD.dev;
+	server_name backend.myskd.dev;
 
 	charset utf-8;
 
@@ -72,38 +72,17 @@ server {
 
 }
 
-## STORAGE ##
-server {
-	listen 80;
-	server_name storage.MySKD.dev;
 
-	root /app/storage/web;
-	index index.html;
-	# expires max;
-
-    location / {
-        try_files $uri $uri/ /index.php?$args;
-    }
-
-    location ~ \.php$ {
-        fastcgi_split_path_info ^(.+\.php)(/.+)$;
-        fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
-		fastcgi_pass php-fpm;
-		fastcgi_index index.php;
-		include fastcgi_params;
-    }
-}
 
 ## PHP-FPM Servers ##
 upstream php-fpm {
-    server fpm:9000;
-}
+    server fpm:9000; }
 
 ## MISC ##
 
 ### WWW Redirect ###
 #server {
 #    listen       80;
-#    server_name  www.MySKD.dev;
-#    return       301 http://MySKD.dev$request_uri;
+#    server_name  www.myskd.dev;
+#    return       301 http://myskd.dev$request_uri;
 #}
