@@ -32,15 +32,15 @@ class ActiveController extends RestActiveController
                 QueryParamAuth::className(),
             ],
         ];*/
-        $behaviors['authenticator'] = [
-            'class' => QueryParamAuth::className(),
-            /*'allowActions' => [
-                '/',
-                '/v1/post',
-                '/v1/post/index',
-
-            ]*/
-        ];
+//        $behaviors['authenticator'] = [
+//            'class' => QueryParamAuth::className(),
+//            /*'allowActions' => [
+//                '/',
+//                '/v1/post',
+//                '/v1/post/index',
+//
+//            ]*/
+//        ];
         /*$behaviors['access'] = [
             'class' => ApiAccessControl::className(),
             'allowActions' => [

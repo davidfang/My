@@ -16,7 +16,7 @@ class UserController extends \api\common\ActiveController
         $result = ['data'=>$result,'status'=>true];
         return $this->serializeData($result);
     }*/
-    public $modelClass = 'api\common\models\User';
+    public $modelClass = 'api\modules\v1\models\User';
     /**
      * 登录
      * method:POST OR GET
